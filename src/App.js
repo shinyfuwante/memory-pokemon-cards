@@ -1,8 +1,9 @@
-import PokeCard from './components/Game/PokeCard';
+import CardContainer from "./components/Game/CardContainer/CardContainer";
+
 
 function App() {
   return (
-    <PokeCard></PokeCard>
+    <CardContainer></CardContainer>
   )
 }
 
