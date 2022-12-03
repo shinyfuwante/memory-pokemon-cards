@@ -19,14 +19,9 @@ const GEN7_MAX = 809;
 const GEN8_MIN = GEN7_MAX + 1;
 const MAX = 905;
 
-const GENS = 8;
 
 // get a random set of pokemon from a certain gen
 const PokemonLib = () => {
-  const randomGen = () => {
-    return Math.floor(Math.random() * GENS);
-  };
-
   // obtain the range for the generation of pokemon (can expand upon to do multiple gens)
   const getPokeRange = (generation) => {
     switch (generation) {
@@ -72,7 +67,6 @@ const PokemonLib = () => {
         img: pokemon.sprites.front_default,
       };
     });
-
     return processedPokes;
   };
 
