@@ -1,15 +1,17 @@
 import React from "react";
-import { useState } from "react";
+import "./PokeCard.css"
+// import { useState } from "react";
 
-// need image
-// name of pokemon
+
+// click the card
+// sets a clicked state
+// if clicked again, set score to 0..
 const PokeCard = ({pokeImg, pokemon}) => {
-
   return (
-    <>
+    <div className="pokemon-card">
       <img src={pokeImg} alt={`Pokemon ${pokemon}`} />
-      <div>{pokemon}</div>
-    </>
+      <div>{pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}</div>
+    </div>
   );
 };
 
