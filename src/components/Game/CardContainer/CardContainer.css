@@ -1,0 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+    justify-items: center;
+    width: 600px;
+    height: auto;
+    background: white;
+}
