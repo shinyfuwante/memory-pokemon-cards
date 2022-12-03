@@ -78,8 +78,10 @@ const PokemonLib = () => {
 
   const getRandomSubset = (num, min, max) => {
     let subset = [];
-    for (let i = 0; i < num; i++) {
-      subset.push(Math.floor(Math.random() * (max - min) + min));
+    while (subset.length < num) {
+      const id = Math.floor(Math.random() * (max - min) + min);
+      if (subset.includes(id)) continue;
+      subset.push(id);
     }
     return subset;
   };
