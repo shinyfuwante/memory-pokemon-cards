@@ -1,5 +1,6 @@
 .pokemon-card {
     border: 2px solid gray;
+    box-shadow: 1px 1px 2px ;
     width: 125px;
     max-width: auto;
     aspect-ratio: 1;
@@ -7,16 +8,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #c2c1c1;
     margin: 0;
     border-radius: 10px;
     padding: 0.5em;
-}
-
-.pokemon-card>img {
-    border: 1px solid gray;
-    border-radius: 10%;
-    background-color: whitesmoke;
+    color: whitesmoke;
 }
 
 .pokemon-card>div {
