@@ -58,7 +58,8 @@ const CardContainer = () => {
   };
 
   const genCards = async () => {
-    const randomGen = Math.floor(Math.random() * 8);
+    const randomGen = Math.floor(Math.random() * 8) + 1;
+    console.log(randomGen);
     const [min, max] = pd.getPokeRange(randomGen);
     const subset = pd.getRandomSubset(16, min, max);
     const newCards = await pd.fetchPokeInfoFromIDs(subset);
