@@ -1,5 +1,6 @@
 {
   "name": "memory-card",
+  "homepage": "http://shinyfuwante.github.io/memory-pokemon-cards",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -40,6 +41,5 @@
   },
   "devDependencies": {
     "gh-pages": "^4.0.0"
-  },
-  "homepage": "http://shinyfuwante.github.io/memory-pokemon-cards"
+  }
 }
