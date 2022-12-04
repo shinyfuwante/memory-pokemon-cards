@@ -32,7 +32,7 @@ const CardContainer = () => {
     let swapIndex = shuffledArray.length;
     let randomIndex = 0;
 
-    while (swapIndex != 0) {
+    while (swapIndex !== 0) {
       randomIndex = Math.floor(Math.random() * swapIndex);
       swapIndex--;
       [shuffledArray[swapIndex], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[swapIndex]];
