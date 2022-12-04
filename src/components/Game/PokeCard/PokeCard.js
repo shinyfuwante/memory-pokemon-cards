@@ -6,9 +6,9 @@ import "./PokeCard.css"
 // click the card
 // sets a clicked state
 // if clicked again, set score to 0..
-const PokeCard = ({pokeImg, pokemon}) => {
+const PokeCard = ({pokeImg, pokemon, clickHandler}) => {
   return (
-    <div className="pokemon-card">
+    <div onClick = {(e) => clickHandler(e)} className="pokemon-card">
       <img src={pokeImg} alt={`Pokemon ${pokemon}`} />
       <div>{pokemon.charAt(0).toUpperCase() + pokemon.slice(1)}</div>
     </div>
