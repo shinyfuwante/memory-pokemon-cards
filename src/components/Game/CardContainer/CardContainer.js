@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import PokeCard from "../PokeCard/PokeCard";
 import PokemonLib from "../../../modules/PokemonLib/PokemonLib";
 import "./CardContainer.css";
+import Scoreboard from "../Scoreboard";
 
 const pd = PokemonLib();
 
@@ -26,9 +27,22 @@ const CardContainer = () => {
     setBestScore(newBestScore);
   };
 
-  // when a card is clicked, push the card into the array
-  // if the card is present in the array, empty the array, reset score to 0, update max score if required
+  const shuffleCards = () => {
+    const shuffledArray = [...cards];
+    let swapIndex = shuffledArray.length;
+    let randomIndex = 0;
+
+    while (swapIndex != 0) {
+      randomIndex = Math.floor(Math.random() * swapIndex);
+      swapIndex--;
+      [shuffledArray[swapIndex], shuffledArray[randomIndex]] = [shuffledArray[randomIndex], shuffledArray[swapIndex]];
+    }
+    setCards(shuffledArray);
+  }
+
+  // on click, shuffle
   const clickHandler = (e) => {
+    shuffleCards();
     const card = e.currentTarget;
     // use current target to avoid pushing img or text div
     if (clickedTracker.includes(card)) {
@@ -43,26 +57,19 @@ const CardContainer = () => {
     }
   };
 
+  const genCards = async () => {
+    const [min, max] = pd.getPokeRange(4);
+    const subset = pd.getRandomSubset(16, min, max);
+    const newCards = await pd.fetchPokeInfoFromIDs(subset);
+    setCards(newCards);
+  };
   useEffect(() => {
-    let isCanceled = false;
-    const genCards = async () => {
-      const [min, max] = pd.getPokeRange(6);
-      const subset = pd.getRandomSubset(16, min, max);
-      const newCards = await pd.fetchPokeInfoFromIDs(subset);
-      if (!isCanceled) {
-        setCards(newCards);
-      }
-    };
     genCards();
-    return () => {
-      isCanceled = true;
-    };
   }, []);
 
   return (
     <>
-      Score: {score} 
-      Best Score: {bestScore}
+      <Scoreboard className="scoreboard" score= {score} bestScore = {bestScore}/>
       <div className="game-container">
         {cards.map((card) => {
           return (
