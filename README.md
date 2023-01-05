@@ -2,6 +2,7 @@
 
 This project helped to solidify use of hooks and calling APIs in React. The goal of the game is to click all 16 cards without clicking a duplicate. 
 
+To view: https://shinyfuwante.github.io/memory-pokemon-cards/
 
 # Getting Started with Create React App
 
